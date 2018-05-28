@@ -1,0 +1,29 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "rules": {
+    "import/prefer-default-export": "warn",
+    "jsx-a11y/label-has-for": [2, {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
+    "object-curly-newline": ["error", {
+      "minProperties": 6,
+      "consistent": true
+    }],
+    "react/jsx-filename-extension": "off",
+    "react/no-array-index-key": "warn",
+    "react/require-default-props": "warn",
+    "class-methods-use-this": "warn"
+  }
+}
