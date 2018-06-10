@@ -11,10 +11,6 @@ module.exports = (env) => {
   const reactHotLoaderPlugin = 'react-hot-loader/babel';
 
   const config = {
-    devServer: {
-      contentBase: './dist',
-      port: 8080,
-    },
     entry: {
       main: './src/index.js',
     },

@@ -46,7 +46,12 @@ if (process.env.NODE_ENV === 'development') {
     });
   });
 } else {
-  const indexTemplate = fs.readFileSync(path.resolve(__dirname, '..', 'dist', 'index.html')).toString();
+  const indexTemplate = fs.readFileSync(path.resolve(
+    __dirname,
+    '..',
+    'dist',
+    'index.html',
+  )).toString();
   app.use('*', (req, res) => {
     res.set('content-type', 'text/html');
     res.send(indexTemplate);
