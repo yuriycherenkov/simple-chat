@@ -7,6 +7,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import helmetMiddleware from 'helmet';
 
 import webpackConfig from '../webpack.config';
 
@@ -14,6 +15,7 @@ import usersRouter from './routes/users';
 
 const app = express();
 
+app.use(helmetMiddleware());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

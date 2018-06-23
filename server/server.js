@@ -3,6 +3,9 @@
  * Module dependencies.
  */
 /* eslint-disable no-use-before-define, no-restricted-globals, no-console */
+import sticky from 'sticky-session';
+import { sequelize } from './models';
+import config from './config';
 
 const app = require('./app');
 const debug = require('debug')('myapp:server');
@@ -12,7 +15,7 @@ const http = require('http');
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '4000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -25,9 +28,25 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+sequelize.sync({ force: false, alter: false })
+  .then(() => {
+    if (isDevelopment) {
+      server.listen(port);
+      server.on('error', onError);
+      server.on('listening', onListening);
+      return;
+    }
+
+    if (!sticky.listen(app, config.api.port)) {
+      app.once('listening', () => {
+        console.log('Cluster started on 3000 port');
+      });
+    } else {
+      console.log('Started worker');
+    }
+  });
 
 /**
  * Normalize a port into a number, string, or false.
