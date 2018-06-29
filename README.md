@@ -5,5 +5,7 @@
 ```
 npm i
 npm run start
+
+open in browser http://localhost:3000
 ```
 

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const babelPlugins = [
   '@babel/plugin-proposal-object-rest-spread',
@@ -9,6 +10,7 @@ const babelPlugins = [
 
 module.exports = (env) => {
   const reactHotLoaderPlugin = 'react-hot-loader/babel';
+  const isDevelopment = env === 'development';
 
   const config = {
     entry: {
@@ -18,6 +20,10 @@ module.exports = (env) => {
       filename: '[name].js',
       path: path.join(__dirname, 'dist'),
       publicPath: '/',
+      pathinfo: true,
+      chunkFilename: 'static/js/[name].chunk.js',
+      devtoolModuleFilenameTemplate: info =>
+        path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
     },
     module: {
       rules: [
@@ -29,7 +35,7 @@ module.exports = (env) => {
             options: {
               babelrc: false,
               cacheDirectory: true,
-              plugins: env === 'development' ? [...babelPlugins, reactHotLoaderPlugin] : [...babelPlugins],
+              plugins: isDevelopment ? [...babelPlugins, reactHotLoaderPlugin] : [...babelPlugins],
               presets: [
                 ['@babel/env', {
                   modules: false,
@@ -56,6 +62,12 @@ module.exports = (env) => {
         },
       ],
     },
+    optimization: {
+      minimizer: isDevelopment ? [] : [
+        new UglifyJsPlugin(),
+      ],
+    },
+    devtool: 'cheap-module-source-map',
     plugins: [
       new HtmlWebPackPlugin({
         template: 'public/index.html',
