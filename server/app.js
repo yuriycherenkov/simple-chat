@@ -15,12 +15,12 @@ import usersRouter from './routes/users';
 
 const app = express();
 
-app.use(helmetMiddleware());
+app.use(helmetMiddleware()); // helps you secure your Express apps by setting various HTTP headers
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.use('/users', usersRouter);
 
@@ -28,7 +28,9 @@ let webpackDevMiddlewareInstance;
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(webpackConfig(process.env.NODE_ENV));
 
-  webpackDevMiddlewareInstance = webpackDevMiddleware(compiler);
+  webpackDevMiddlewareInstance = webpackDevMiddleware(compiler, {
+    publicPath: '/',
+  });
 
   app.use(webpackDevMiddlewareInstance);
 
@@ -39,12 +41,21 @@ if (process.env.NODE_ENV === 'development') {
 
   app.use('*', (req, res, next) => {
     const filename = path.join(compiler.outputPath, 'index.html');
+
     compiler.outputFileSystem.readFile(filename, (err, result) => {
       if (err) {
         return next(err);
       }
+
       res.set('content-type', 'text/html');
-      return res.send(result);
+      res.send(result.toString(), {
+        initialState: req.initialState,
+        env: process.env.NODE_ENV,
+      }, {
+        delimiter: '$',
+      });
+
+      return res.end();
     });
   });
 } else {
@@ -76,4 +87,4 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
-module.exports = app;
+export default app;

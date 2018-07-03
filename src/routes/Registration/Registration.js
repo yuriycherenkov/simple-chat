@@ -1,15 +1,15 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-const ChatHistory = () => (
+const Registration = () => (
   (
     <div>
-      <div>ChatHistory 1234</div>
+      <div>Registration</div>
     </div>
   ));
 
-export default ChatHistory;
+export default Registration;
 
-// ChatHistory.propTypes = {
+// Registration.propTypes = {
 //   children: React.PropTypes.element.isRequired,
 // };

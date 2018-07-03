@@ -6,8 +6,8 @@
 import sticky from 'sticky-session';
 import { sequelize } from './models';
 import config from './config';
+import app from './app';
 
-const app = require('./app');
 const debug = require('debug')('myapp:server');
 const http = require('http');
 
