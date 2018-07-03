@@ -48,12 +48,7 @@ if (process.env.NODE_ENV === 'development') {
       }
 
       res.set('content-type', 'text/html');
-      res.send(result.toString(), {
-        initialState: req.initialState,
-        env: process.env.NODE_ENV,
-      }, {
-        delimiter: '$',
-      });
+      res.send(result.toString());
 
       return res.end();
     });

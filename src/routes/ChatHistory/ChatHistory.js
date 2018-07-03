@@ -4,7 +4,7 @@ import React from 'react';
 const ChatHistory = () => (
   (
     <div>
-      <div>ChatHistory 1234</div>
+      <div>ChatHistory</div>
     </div>
   ));
 

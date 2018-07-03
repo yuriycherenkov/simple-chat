@@ -96,10 +96,10 @@
     "flow-typed": "^2.4.0"
   },
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./server/server_dev --hot",
+    "start": "NODE_ENV=development nodemon ./server/server_dev --config nodemon.json",
     "build": "webpack --mode production",
     "eslint": "eslint --quiet src",
     "precommit": "npm run eslint",
-    "sequelize": "sequelize"
+    "db:migrate": "sequelize db:migrate"
   }
 }

@@ -22,7 +22,6 @@ module.exports = (env) => {
       chunkFilename: '[name]-[hash:8].js',
       path: path.join(__dirname, 'dist'),
       publicPath: '/',
-      jsonpFunction: 'wpj',
     },
     resolve: {
       extensions: ['.jsx', '.json', '.js'],
