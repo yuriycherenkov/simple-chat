@@ -1,0 +1,25 @@
+.form {
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(#000, 0.4);
+    width: 100%;
+    height: 100%;
+  }
+
+  &__fields {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    max-width: 450px;
+    width: 100%;
+    padding: 15px;
+
+    .form-control {
+      margin-bottom: 10px;
+    }
+  }
+}
