@@ -24,12 +24,16 @@ module.exports = (env) => {
       publicPath: '/',
     },
     resolve: {
-      extensions: ['.jsx', '.json', '.js'],
+      extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
     module: {
       rules: [
-        // { test: /manifest\.json$/, use: ['file-loader'] },
+        // All files with a '.ts' or '.tsx'
+        // extension will be handled by 'awesome-typescript-loader'.
+        { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+        // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+        { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
         {
           test: /\.jsx?$/,
           use: {
@@ -67,6 +71,14 @@ module.exports = (env) => {
           use: ['style-loader', 'css-loader', 'sass-loader'],
         },
       ],
+    },
+    // When importing a module whose path matches one of the following, just
+    // assume a corresponding global variable exists and use that instead.
+    // This is important because it allows us to avoid bundling all of our
+    // dependencies, which allows browsers to cache those libraries between builds.
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
     },
     plugins: [
       new HtmlWebPackPlugin({

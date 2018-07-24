@@ -26,13 +26,12 @@ class Header extends Component {
                   <Form toggle={toggle}>
                     {({ renderRegistration, renderLogin }) => (
                       <div className={isOpen ? 'form form__background' : 'form'}>
-                        {!isUserRegistered && renderRegistration}
-                        {isUserRegistered && renderLogin}
+                        {isUserRegistered ? renderLogin : renderRegistration}
                       </div>
                         )}
                   </Form>
                 </Portal>}
-                <button onClick={toggle}>Show / hide</button>
+                <button onClick={toggle}>{isUserRegistered ? 'Login' : 'Registration'}</button>
               </Fragment>
             )
           }
