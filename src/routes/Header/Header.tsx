@@ -1,11 +1,10 @@
-import React, { Component, Fragment } from 'react';
-// import PropTypes from 'prop-types';
+import * as React from 'react';
 import Toggle from '../Toggle';
 import Logo from '../Logo';
 import Form from '../Form';
 import Portal from '../../Portal';
 
-class Header extends Component {
+class Header extends React.Component {
   state = {
     isUserRegistered: false,
   }
@@ -20,7 +19,7 @@ class Header extends Component {
         <Toggle>
           {
             ({ toggle, isOpen }) => (
-              <Fragment>
+              <React.Fragment>
                 {isOpen &&
                 <Portal>
                   <Form toggle={toggle}>
@@ -32,7 +31,7 @@ class Header extends Component {
                   </Form>
                 </Portal>}
                 <button onClick={toggle}>{isUserRegistered ? 'Login' : 'Registration'}</button>
-              </Fragment>
+              </React.Fragment>
             )
           }
         </Toggle>
@@ -43,6 +42,3 @@ class Header extends Component {
 
 export default Header;
 
-// Header.propTypes = {
-//   children: React.PropTypes.element.isRequired,
-// };

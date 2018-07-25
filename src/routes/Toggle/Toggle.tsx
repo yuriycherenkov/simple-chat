@@ -1,7 +1,17 @@
-import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-class Toggle extends PureComponent {
+interface InjectedCounterProps {
+  toggle(): void;
+  isOpen: boolean;
+}
+interface IToggleProps {
+  children(props: InjectedCounterProps): JSX.Element;
+}
+interface IToggleState {
+  isOpen: boolean;
+}
+
+class Toggle extends React.PureComponent<IToggleProps, IToggleState> {
   state = {
     isOpen: false,
   }
@@ -23,6 +33,3 @@ class Toggle extends PureComponent {
 
 export default Toggle;
 
-Toggle.propTypes = {
-  children: PropTypes.func.isRequired,
-};

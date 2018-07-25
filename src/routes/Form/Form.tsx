@@ -1,21 +1,31 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import './style.scss';
 
-class Form extends PureComponent {
-  constructor(props) {
+interface InjectedCounterProps {
+  renderRegistration: HTMLElement;
+  renderLogin: HTMLElement;
+  closeModal: void;
+}
+
+interface IToggleProps {
+  children(props: InjectedCounterProps): JSX.Element;
+  toggle(): void;
+}
+
+class Form extends React.PureComponent<IToggleProps> {
+  constructor(props: Readonly<IToggleProps>) {
     super(props);
 
     this.renderRegistration = this.renderRegistration.bind(this);
     this.renderLogin = this.renderLogin.bind(this);
   }
 
-  onClick = (e) => {
+  onClick = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
   };
 
-  onClose = (e) => {
+  onClose = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
     this.props.toggle();
   };
@@ -60,8 +70,4 @@ class Form extends PureComponent {
 
 export default Form;
 
-Form.propTypes = {
-  children: PropTypes.func.isRequired,
-  toggle: PropTypes.func.isRequired,
-};
 

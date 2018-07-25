@@ -1,13 +1,13 @@
 import { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import * as ReactDOM from 'react-dom';
 
 const portalRoot = document.getElementById('portal');
 
 class Portal extends Component {
-  constructor() {
-    super();
+  el: HTMLElement;
 
+  constructor(props: any) {
+    super(props);
     this.el = document.createElement('div');
   }
 
@@ -28,6 +28,3 @@ class Portal extends Component {
 
 export default Portal;
 
-Portal.propTypes = {
-  children: PropTypes.element.isRequired,
-};
