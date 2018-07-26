@@ -1,7 +1,9 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import * as React from 'react';
 
-const ChatHistory = () => (
+interface Iprops {
+}
+
+const ChatHistory: React.SFC<Iprops> = () => (
   (
     <div>
       <div>ChatHistory</div>
@@ -10,6 +12,3 @@ const ChatHistory = () => (
 
 export default ChatHistory;
 
-// ChatHistory.propTypes = {
-//   children: React.PropTypes.element.isRequired,
-// };

@@ -3,9 +3,9 @@ import * as React from 'react';
 import './style.scss';
 
 interface InjectedCounterProps {
-  renderRegistration: HTMLElement;
-  renderLogin: HTMLElement;
-  closeModal: void;
+  renderRegistration: () => JSX.Element;
+  renderLogin: () => JSX.Element;
+  closeModal: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 interface IToggleProps {
@@ -61,8 +61,8 @@ class Form extends React.PureComponent<IToggleProps> {
     const { children } = this.props;
 
     return children({
-      renderRegistration: this.renderRegistration(),
-      renderLogin: this.renderLogin(),
+      renderRegistration: this.renderRegistration,
+      renderLogin: this.renderLogin,
       closeModal: this.onClose,
     });
   }

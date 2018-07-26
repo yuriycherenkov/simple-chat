@@ -1,7 +1,11 @@
 import * as React from 'react';
 import Header from '../Header';
 
-const Layout = (props: any) => {
+interface IToggleProps {
+  children: JSX.Element;
+}
+
+const Layout = (props: IToggleProps) => {
   const { children } = props;
 
   return (

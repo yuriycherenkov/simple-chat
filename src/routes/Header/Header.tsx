@@ -4,7 +4,14 @@ import Logo from '../Logo';
 import Form from '../Form';
 import Portal from '../../Portal';
 
-class Header extends React.Component {
+interface Iprops {
+}
+
+interface Istate {
+  isUserRegistered: boolean;
+}
+
+class Header extends React.Component<Iprops, Istate> {
   state = {
     isUserRegistered: false,
   }
@@ -25,7 +32,7 @@ class Header extends React.Component {
                   <Form toggle={toggle}>
                     {({ renderRegistration, renderLogin }) => (
                       <div className={isOpen ? 'form form__background' : 'form'}>
-                        {isUserRegistered ? renderLogin : renderRegistration}
+                        {isUserRegistered ? renderLogin() : renderRegistration()}
                       </div>
                         )}
                   </Form>
