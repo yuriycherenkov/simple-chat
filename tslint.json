@@ -38,6 +38,8 @@
         "typeParameter": false
       }
     ],
+    // Warns on comparison to a boolean literal, as in x === true.
+    "no-boolean-literal-compare": true,
     "no-submodule-imports": true,
     "ordered-imports": false,
     "prefer-const": true,

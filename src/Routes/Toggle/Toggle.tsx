@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 interface InjectedCounterProps {
-  toggle(): void;
   isOpen: boolean;
+  toggle(): void;
 }
 interface IToggleProps {
   children(props: InjectedCounterProps): JSX.Element;
@@ -14,7 +14,7 @@ interface IToggleState {
 class Toggle extends React.PureComponent<IToggleProps, IToggleState> {
   state = {
     isOpen: false,
-  }
+  };
 
   toggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
@@ -25,11 +25,10 @@ class Toggle extends React.PureComponent<IToggleProps, IToggleState> {
     const { isOpen } = this.state;
 
     return children({
-      toggle: this.toggle,
       isOpen,
+      toggle: this.toggle,
     });
   }
 }
 
 export default Toggle;
-

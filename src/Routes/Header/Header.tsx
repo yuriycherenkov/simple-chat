@@ -14,7 +14,7 @@ interface Istate {
 class Header extends React.Component<Iprops, Istate> {
   state = {
     isUserRegistered: false,
-  }
+  };
 
   render() {
     const { isUserRegistered } = this.state;
@@ -39,8 +39,7 @@ class Header extends React.Component<Iprops, Istate> {
                 </Portal>}
                 <button onClick={toggle}>{isUserRegistered ? 'Login' : 'Registration'}</button>
               </React.Fragment>
-            )
-          }
+            )}
         </Toggle>
       </div>
     );
@@ -48,4 +47,3 @@ class Header extends React.Component<Iprops, Istate> {
 }
 
 export default Header;
-

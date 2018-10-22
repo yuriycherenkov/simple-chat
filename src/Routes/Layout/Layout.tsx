@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Header from '../Header/index';
+import Header from '../Header';
 
 interface IToggleProps {
   children: JSX.Element;
@@ -17,4 +17,3 @@ const Layout = (props: IToggleProps) => {
 };
 
 export default Layout;
-

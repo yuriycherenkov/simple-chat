@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-interface Iprops {
+interface IProps {
 }
 
-const ChatHistory: React.SFC<Iprops> = () => (
+const ChatHistory: React.SFC<IProps> = () => (
   (
     <div>
       <div>ChatHistory</div>
@@ -11,4 +11,3 @@ const ChatHistory: React.SFC<Iprops> = () => (
   ));
 
 export default ChatHistory;
-
