@@ -32,8 +32,6 @@ module.exports = (env) => {
         // All files with a '.ts' or '.tsx'
         // extension will be handled by 'awesome-typescript-loader'.
         { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-        // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-        { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
         {
           test: /\.jsx?$/,
           use: {
@@ -53,6 +51,8 @@ module.exports = (env) => {
           },
           exclude: /node_modules/,
         },
+        // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+        { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
         {
           test: /\.html$/,
           use: [
@@ -104,7 +104,8 @@ module.exports = (env) => {
     plugins: [
       new webpack.HotModuleReplacementPlugin(), // Enable HMR
     ],
-    devtool: 'cheap-module-source-map',
+    // Enable sourcemaps for debugging webpack's output.
+    devtool: 'source-map',
   });
 
   const configProduction = merge.smart(commonConfig, {
