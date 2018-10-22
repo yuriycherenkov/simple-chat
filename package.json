@@ -138,7 +138,7 @@
     "start": "NODE_ENV=development nodemon ./server/server_dev --config nodemon.json",
     "build": "webpack --mode production",
     "lint": "tslint -p tsconfig.json 'src/**/*.ts*'",
-    "lint-fix": "tslint --fix 'src/**/*.ts*'",
+    "lint-fix": "tslint --fix -p tsconfig.json 'src/**/*.ts*'",
     "eslint": "eslint --quiet 'src/**/*.js*'",
     "test": "npx jest --watch",
     "test:ci": "npx jest",
