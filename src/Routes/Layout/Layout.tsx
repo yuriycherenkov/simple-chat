@@ -17,4 +17,3 @@ const Layout = (props: IToggleProps) => {
 };
 
 export default Layout;
-

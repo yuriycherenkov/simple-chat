@@ -69,5 +69,3 @@ class Form extends React.PureComponent<IToggleProps> {
 }
 
 export default Form;
-
-

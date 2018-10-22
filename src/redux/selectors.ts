@@ -1,2 +1,2 @@
-export const getState = (state: Array<string>) => state;
-export const getSomeOtherSelector = (state: Array<string>) => state;
+export const getState = (state: string[]) => state;
+export const getSomeOtherSelector = (state: string[]) => state;
