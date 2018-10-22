@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ChatHistory from './ChatHistory';
-import Layout from './Layout';
+import ChatHistory from './ChatHistory/index';
+import Layout from './Layout/index';
 
 // interface IRoute extends Switch<React.Props<any> {
 

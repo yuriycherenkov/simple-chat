@@ -7,16 +7,10 @@
   },
   "plugins": [
     "react",
-    "jsx-a11y",
     "import"
   ],
   "rules": {
     "import/prefer-default-export": "warn",
-    "jsx-a11y/label-has-for": [2, {
-      "required": {
-        "some": ["nesting", "id"]
-      }
-    }],
     "object-curly-newline": ["error", {
       "minProperties": 6,
       "consistent": true

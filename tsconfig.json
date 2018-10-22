@@ -1,31 +1,30 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
     "plugins": [
       {
         "name": "typescript-styled-plugin"
       }
     ],
-      "strict": true,
-      "baseUrl": "./",
-      "noImplicitAny": true,
-      "module": "commonjs",
-      "target": "es5",
-      "jsx": "react",
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "noFallthroughCasesInSwitch": true,
-      "noEmitOnError": true,
-      "sourceMap": true,
-      "allowJs": true,
-      "moduleResolution": "node",
-      "forceConsistentCasingInFileNames": true,
-      "noImplicitReturns": true,
-      "suppressImplicitAnyIndexErrors": true,
-      "allowSyntheticDefaultImports": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "lib": ["es6", "dom"]
+    "strict": true,
+    "baseUrl": "./",
+    "noImplicitAny": true,
+    "target": "es5",
+    "jsx": "react",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": ["es6", "dom"]
   },
   "include": [
       "./src/**/*"
