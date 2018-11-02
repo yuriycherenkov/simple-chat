@@ -5,6 +5,7 @@
         "name": "typescript-styled-plugin"
       }
     ],
+    "outDir": "./dist/",
     "strict": true,
     "baseUrl": "./",
     "noImplicitAny": true,

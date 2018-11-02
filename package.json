@@ -11,12 +11,12 @@
     "presets": [
       [
         "@babel/env",
-        "react",
         {
           "targets": {
             "node": "current"
           }
-        }
+        },
+        "@babel/preset-react"
       ]
     ],
     "ignore": [
@@ -37,8 +37,8 @@
     "@babel/preset-react": "^7.0.0-beta.42",
     "@babel/register": "^7.0.0-beta.49",
     "@types/prop-types": "^15.5.4",
-    "@types/react": "^16.4.7",
-    "@types/react-dom": "^16.0.6",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
     "@types/react-redux": "^6.0.5",
     "@types/react-router-dom": "^4.3.0",
     "@types/redux-actions": "^2.3.0",
@@ -86,8 +86,8 @@
     "nodemon": "^1.17.5",
     "pg": "^7.4.3",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.3.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.3",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

@@ -46,7 +46,7 @@ module.exports = (env) => {
                   targets: {
                     browsers: ['chrome >= 62'],
                   },
-                }], '@babel/react', '@babel/flow'],
+                }], '@babel/react'],
             },
           },
           exclude: /node_modules/,
@@ -77,8 +77,7 @@ module.exports = (env) => {
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
     externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
+      react: 'React'
     },
     plugins: [
       new HtmlWebPackPlugin({
@@ -110,7 +109,7 @@ module.exports = (env) => {
 
   const configProduction = merge.smart(commonConfig, {
     mode: 'production',
-    entry: './index.js',
+    entry: './index.tsx',
     plugins: [
       new CleanWebpackPlugin(['dist']),
     ],

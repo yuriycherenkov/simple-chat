@@ -1,4 +1,4 @@
-import { handleActions, Action } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import * as actions from './actions';
 
 interface IState {
@@ -11,6 +11,6 @@ const initialState: IState = {
 
 // (state, action: Action<string>) =>
 
-export default handleActions<IState, any>({
-  [actions.initState.toString()]: (state: any) => state,
+export default handleActions<IState>({
+  [actions.initState.toString()]: (state: IState) => state,
 }, initialState);
