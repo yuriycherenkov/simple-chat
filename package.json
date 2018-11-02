@@ -36,6 +36,9 @@
     "@babel/preset-env": "7.0.0-beta.42",
     "@babel/preset-react": "^7.0.0-beta.42",
     "@babel/register": "^7.0.0-beta.49",
+    "@types/enzyme": "^3.1.14",
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.2",
     "@types/prop-types": "^15.5.4",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
@@ -51,6 +54,7 @@
     "css-loader": "^0.28.11",
     "dynamic-cdn-webpack-plugin": "^4.0.0-rc.1",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-react": "^7.7.0",
@@ -128,11 +132,15 @@
     "roots": [
       "<rootDir>/src"
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/jest_config/setupTests.js",
     "testRegex": "(/__tests__/.*|(\\.|/)(test))\\.(jsx?|tsx?)$",
     "testURL": "http://localhost/",
     "transform": {
       "^.+\\.(t|j)sx?$": "ts-jest"
-    }
+    },
+    "watchPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon ./server/server_dev --config nodemon.json",

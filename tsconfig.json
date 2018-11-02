@@ -28,7 +28,7 @@
     "lib": ["es6", "dom"]
   },
   "include": [
-      "./src/**/*"
+      "./src/**/*", "jest_config/setupTests.js"
   ],
   "exclude": ["node_modules", "dist"]
 }

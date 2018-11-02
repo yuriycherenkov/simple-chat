@@ -25,7 +25,7 @@
     // Disallows one or more blank lines in a row.
     "no-consecutive-blank-lines": true,
     "no-empty-interface": false,
-    "no-implicit-dependencies": true,
+    "no-implicit-dependencies": [true, ["enzyme", "enzyme-adapter-react-16"]],
     "no-shadowed-variable": [
       false,
       {
