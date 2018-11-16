@@ -3,11 +3,11 @@ import helpers from '../helpers/index';
 const users = [
   {
     name: 'Vasya',
-    id: helpers.createUniqueId(),
+    id: helpers.createUniqueId('userId'),
   },
   {
     name: 'Petya',
-    id: helpers.createUniqueId(),
+    id: helpers.createUniqueId('userId'),
   },
 ];
 

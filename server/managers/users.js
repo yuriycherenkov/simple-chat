@@ -15,7 +15,7 @@ class Users {
   }
 
   addUser(name) {
-    const newUser = { name, id: helpers.createUniqueId() };
+    const newUser = { name, id: helpers.createUniqueId('userId') };
     this.users.push(newUser);
     return newUser;
   }

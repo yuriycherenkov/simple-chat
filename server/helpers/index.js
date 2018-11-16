@@ -1,10 +1,10 @@
 const createUniqueId = () => {
   let count = 1;
 
-  return () => {
+  return (prefix) => {
     count += 1;
 
-    return `${count}__userId`;
+    return `${count}__${prefix}`;
   };
 };
 
