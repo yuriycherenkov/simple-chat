@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Header from '../Header';
 
-interface IToggleProps {
+interface ILayout {
   children: JSX.Element;
 }
 
-const Layout = (props: IToggleProps) => {
+const Layout = (props: ILayout) => {
   const { children } = props;
 
   return (

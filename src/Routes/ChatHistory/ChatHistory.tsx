@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 interface IProps {
+  users: any;
 }
 
 const ChatHistory: React.SFC<IProps> = () => (

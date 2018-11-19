@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-interface InjectedCounterProps {
+interface InjectedProps {
   isOpen: boolean;
   toggle(): void;
 }
 interface IToggleProps {
-  children(props: InjectedCounterProps): JSX.Element;
+  children(props: InjectedProps): JSX.Element;
 }
 interface IToggleState {
   isOpen: boolean;

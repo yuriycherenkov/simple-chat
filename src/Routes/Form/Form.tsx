@@ -2,14 +2,14 @@ import * as React from 'react';
 
 import './style.scss';
 
-interface InjectedCounterProps {
+interface InjectedProps {
   renderRegistration: () => JSX.Element;
   renderLogin: () => JSX.Element;
   closeModal: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 interface IToggleProps {
-  children(props: InjectedCounterProps): JSX.Element;
+  children(props: InjectedProps): JSX.Element;
   toggle(): void;
 }
 
