@@ -4,17 +4,11 @@ import Wrapper from './Wrapper';
 import Layout from './Layout';
 import ChatHistory from './ChatHistory';
 
-import connect from './connect';
-
 // interface IRoute extends Switch<React.Props<any> {
 
 // }
 
 class Routes extends React.PureComponent<any> {
-
-  componentDidMount() {
-    this.props.getUsers();
-  }
 
   render() {
     return (
@@ -36,4 +30,4 @@ class Routes extends React.PureComponent<any> {
   }
 }
 
-export default connect(Routes);
+export default Routes;

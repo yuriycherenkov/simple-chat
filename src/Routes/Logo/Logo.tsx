@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-interface Iprops {
+interface IProps {
 }
 
-const Logo: React.SFC<Iprops> = () =>
+const Logo: React.SFC<IProps> = () =>
   (
     <div>
       <div>

@@ -4,14 +4,14 @@ import Logo from '../Logo';
 import Form from '../Form';
 import Portal from '../../Portal';
 
-interface Iprops {
+interface IProps {
 }
 
 interface Istate {
   isUserRegistered: boolean;
 }
 
-class Header extends React.Component<Iprops, Istate> {
+class Header extends React.Component<IProps, Istate> {
   state = {
     isUserRegistered: false,
   };

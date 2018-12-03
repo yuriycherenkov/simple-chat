@@ -16,6 +16,7 @@ export interface InjectedProps {
 interface IState extends InjectedProps {}
 
 interface IWrapper {
+  setUsers: any;
   children(props: InjectedProps): JSX.Element;
 }
 
@@ -25,10 +26,6 @@ class Wrapper extends React.Component<IWrapper, IState> {
     isLoading: false,
     users: [],
   };
-
-  constructor(props: any) {
-    super(props);
-  }
 
   componentDidMount() {
     if (!this.state.isLoading) {
@@ -62,7 +59,8 @@ class Wrapper extends React.Component<IWrapper, IState> {
       .then(() => this.setState({ isLoading: false }))
       .catch(() => {
         this.setState({ hasError: true, isLoading: false });
-      });
+      })
+      .then(() => this.props.setUsers(this.state.users));
   }
 
   render() {
